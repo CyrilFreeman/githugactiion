@@ -11,4 +11,4 @@ jobs:
 
     steps:
       - name: Mon Job Simple
-        run: echo "Mon premier workflow sur GitHub Actions lol"
+        run: echo "Mon premier workflow sur GitHub Actions"
