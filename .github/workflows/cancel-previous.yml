@@ -1,0 +1,12 @@
+name: Annuler les Actions Précédentes
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Annuler les Actions Précédentes
+        uses: styfle/cancel-workflow-action@0.9.1
