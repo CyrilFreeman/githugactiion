@@ -1,4 +1,4 @@
-name: Mon Premier Workflow
+name: Artifacts
 
 on:
   push:
@@ -11,4 +11,28 @@ jobs:
 
     steps:
       - name: Mon Job Simple
-        run: echo "Mon premier workflow sur GitHub Actions"
+        run: echo "Artifacts sur GitHub Actions"
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: |
+          npm install
+          npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: path/to/build/directory
+
+      - name: Deploy
+        run: ./deploy-script.sh
+
+      - name: Checkout code
+        uses: actions/checkout@v2
